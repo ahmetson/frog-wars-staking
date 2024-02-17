@@ -45,7 +45,7 @@ export default function CurrentGear({
 
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
-      <h2 className={`${styles.noGapTop} `}>Equipped Items</h2>
+      <h2 className={`${styles.noGapTop} `}>Read the Comic Book</h2>
       <div
         style={{
           display: "flex",
@@ -57,7 +57,7 @@ export default function CurrentGear({
         {/* Currently equipped player */}
         <div style={{ outline: "1px solid grey", borderRadius: 16 }}>
           {playerNft && (
-            <ThirdwebNftMedia metadata={playerNft?.metadata} height={"64"} />
+            <ThirdwebNftMedia metadata={playerNft?.metadata} height={"68"} width={"128px"} />
           )}
         </div>
         {/* Currently equipped pickaxe */}
@@ -66,7 +66,7 @@ export default function CurrentGear({
         >
           {pickaxe && (
             // @ts-ignore
-            <ThirdwebNftMedia metadata={pickaxe.metadata} height={"64"} />
+            <ThirdwebNftMedia metadata={pickaxe.metadata} height={"64"} width={"128px"} />
           )}
         </div>
       </div>

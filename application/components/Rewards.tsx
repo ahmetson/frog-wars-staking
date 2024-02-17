@@ -41,14 +41,15 @@ export default function Rewards({ miningContract, tokenContract }: Props) {
       style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
     >
       <p>
-        Your <b>Gold Gems</b>
+        Your <b>Crystals</b>
       </p>
 
       {tokenMetadata ? (
         <ThirdwebNftMedia
           // @ts-ignore
           metadata={tokenMetadata}
-          height={"48"}
+          height={"24"}
+          width={"64px"}
         />
       ) : null}
       <p className={styles.noGapBottom}>
@@ -67,6 +68,9 @@ export default function Rewards({ miningContract, tokenContract }: Props) {
           action={(contract) => contract.call("claim")}
         >
           Claim
+        </Web3Button>
+        <Web3Button style={{marginLeft: "10px"}} contractAddress={MINING_CONTRACT_ADDRESS} action={(contract) => contract.call("withdraw")}>
+          Withdraw
         </Web3Button>
       </div>
     </div>

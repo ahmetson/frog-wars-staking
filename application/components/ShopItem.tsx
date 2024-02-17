@@ -26,13 +26,14 @@ export default function ShopItem({ item, pickaxeContract }: Props) {
         metadata={item.metadata}
         className={`${styles.nftMedia} ${styles.spacerTop}`}
         height="64"
+        width="128px"
       />
       <h3>{item.metadata.name}</h3>
       <p>
         Price:{" "}
         <b>
           {claimCondition && ethers.utils.formatUnits(claimCondition?.price)}{" "}
-          GEM
+          CRYSTAL
         </b>
       </p>
 
