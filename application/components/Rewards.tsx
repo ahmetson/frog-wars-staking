@@ -11,7 +11,7 @@ import { SmartContract, Token } from "@thirdweb-dev/sdk";
 import { ethers } from "ethers";
 
 import styles from "../styles/Home.module.css";
-import ApproxRewards from "./ApproxRewards";
+
 import { MINING_CONTRACT_ADDRESS } from "../const/contractAddresses";
 
 type Props = {
@@ -60,7 +60,7 @@ export default function Rewards({ miningContract, tokenContract }: Props) {
         <b>{unclaimedAmount && ethers.utils.formatUnits(unclaimedAmount)}</b>
       </p>
 
-      <ApproxRewards miningContract={miningContract} />
+      
 
       <div className={styles.smallMargin}>
         <Web3Button
