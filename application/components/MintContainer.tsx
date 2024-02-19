@@ -6,12 +6,11 @@ import styles from "../styles/Home.module.css";
 export default function MintContainer() {
   return (
     <div className={styles.collectionContainer}>
-      <h1>Edition Drop</h1>
-
-      <p>Claim your Character NFT to start playing!</p>
+      <h1>Frog Wars Staking</h1>
+      <p>Buy Comic Book NFT to start playing!</p>
 
       <div className={`${styles.nftBox} ${styles.spacerBottom}`}>
-        {/*<Image src="/mine.gif" style={{ height: 200, width: 200 }} alt="mine" />*/}
+        <Image src="/book.jpg" width={"120"} height={"200"} alt="mine" />
       </div>
 
       <div className={styles.smallMargin}>
@@ -20,7 +19,7 @@ export default function MintContainer() {
           contractAddress={CHARACTER_EDITION_ADDRESS}
           action={(contract) => contract.erc1155.claim(0, 1)}
         >
-          Claim
+          Buy
         </Web3Button>
       </div>
     </div>
