@@ -2,22 +2,22 @@
 pragma solidity ^0.8.11;
 
 // Import thirdweb contracts
-import "@thirdweb-dev/contracts/drop/DropERC1155.sol"; // For my collection of Pickaxes
-import "@thirdweb-dev/contracts/token/TokenERC20.sol"; // For my ERC-20 Token contract
-import "@thirdweb-dev/contracts/openzeppelin-presets/utils/ERC1155/ERC1155Holder.sol";
+import "@thirdweb-dev/contracts/eip/interface/IERC1155.sol"; // For my collection of Pickaxes
+import "@thirdweb-dev/contracts/eip/interface/IERC20.sol"; // For my ERC-20 Token contract
+import "@thirdweb-dev/contracts/external-deps/openzeppelin/utils/ERC1155/ERC1155Holder.sol";
 
 // OpenZeppelin (ReentrancyGuard)
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
 contract Mining is ReentrancyGuard, ERC1155Holder {
     // Store our two other contracts here (Edition Drop and Token)
-    DropERC1155 public immutable pickaxeNftCollection;
-    TokenERC20 public immutable rewardsToken;
+    IERC1155 public immutable pickaxeNftCollection;
+    IERC20 public immutable rewardsToken;
 
     // Constructor function to set the rewards token and the NFT collection addresses
     constructor(
-        DropERC1155 pickaxeContractAddress,
-        TokenERC20 gemsContractAddress
+        IERC1155 pickaxeContractAddress,
+        IERC20 gemsContractAddress
     ) {
         pickaxeNftCollection = pickaxeContractAddress;
         rewardsToken = gemsContractAddress;
@@ -42,7 +42,7 @@ contract Mining is ReentrancyGuard, ERC1155Holder {
         // Ensure the player has at least 1 of the token they are trying to stake
         require(
             pickaxeNftCollection.balanceOf(msg.sender, _tokenId) >= 1,
-            "You must have at least 1 of the pickaxe you are trying to stake"
+            "You must have at least 1 of the warrior you are trying to stake"
         );
 
         // If they have a pickaxe already, send it back to them.
@@ -53,7 +53,7 @@ contract Mining is ReentrancyGuard, ERC1155Holder {
                 msg.sender,
                 playerPickaxe[msg.sender].value,
                 1,
-                "Returning your old pickaxe"
+                "Returning your old warrior"
             );
         }
 
@@ -67,7 +67,7 @@ contract Mining is ReentrancyGuard, ERC1155Holder {
             address(this),
             _tokenId,
             1,
-            "Staking your pickaxe"
+            "Staking your warrior"
         );
 
         // Update the playerPickaxe mapping
@@ -83,7 +83,7 @@ contract Mining is ReentrancyGuard, ERC1155Holder {
         // Ensure the player has a pickaxe
         require(
             playerPickaxe[msg.sender].isData,
-            "You do not have a pickaxe to withdraw."
+            "You do not have a warrior to withdraw."
         );
 
         // Calculate the rewards they are owed, and pay them out.
@@ -96,7 +96,7 @@ contract Mining is ReentrancyGuard, ERC1155Holder {
             msg.sender,
             playerPickaxe[msg.sender].value,
             1,
-            "Returning your old pickaxe"
+            "Returning your old warrior"
         );
 
         // Update the playerPickaxe mapping
@@ -139,10 +139,18 @@ contract Mining is ReentrancyGuard, ERC1155Holder {
         uint256 timeDifference = block.timestamp -
             playerLastUpdate[_player].value;
 
+        uint256 amplifier = 1;
+        if (playerPickaxe[_player].value < 2) {
+            amplifier = 10;
+        } else if (playerPickaxe[_player].value < 4) {
+            amplifier = 5;
+        } else if (playerPickaxe[_player].value < 6) {
+            amplifier = 3;
+        }
+
         // Calculate the rewards they are owed
         uint256 rewards = timeDifference *
-            10_000_000_000_000 *
-            (playerPickaxe[_player].value + 1);
+            10_000_000_000_000 * amplifier;
 
         // Return the rewards
         return rewards;
