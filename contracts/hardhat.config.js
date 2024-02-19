@@ -1,6 +1,4 @@
 require("@nomiclabs/hardhat-waffle");
-require("dotenv").config();
-require("hardhat-deploy");
 
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
@@ -26,26 +24,4 @@ module.exports = {
       runs: 10,
     }
   },
-  networks: {
-    sepolia: {
-      chainId: 11155111,
-      url: "https://eth-sepolia.public.blastapi.io",
-      accounts: [process.env.PRIVATE_KEY],
-    },
-    linea: {
-      chainId: 59144,
-      url: "https://1rpc.io/linea",
-      accounts: [process.env.PRIVATE_KEY],
-    },
-    lineaTestnet: {
-      chainId: 59140,
-      url: "https://rpc.goerli.linea.build",
-      accounts: [process.env.PRIVATE_KEY]
-    }
-  },
-  namedAccounts: {
-    deployer: {
-      default: 0 // here this will by default take the first account as deployer
-    }
-  }
 };

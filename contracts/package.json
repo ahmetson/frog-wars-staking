@@ -16,8 +16,6 @@
     "@openzeppelin/contracts": "^4.6.0",
     "@openzeppelin/contracts-upgradeable": "^4.6.0",
     "@thirdweb-dev/contracts": "^3",
-    "dotenv": "^16.4.4",
-    "hardhat": "latest",
-    "hardhat-deploy": "^0.11.45"
+    "hardhat": "latest",  
   }
 }
