@@ -55,7 +55,7 @@ export default function CurrentGear({
         }}
       >
         {/* Currently equipped player */}
-        <div style={{ outline: "1px solid grey", borderRadius: 16 }}>
+        <div style={{ outline: "0px solid grey", borderRadius: 16 }}>
           {playerNft && (
             <ThirdwebNftMedia metadata={playerNft?.metadata} height={"68"} width={"128px"} />
           )}
