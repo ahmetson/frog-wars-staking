@@ -15,7 +15,7 @@ type Props = {
 
 export default function GameplayAnimation({ pickaxe }: Props) {
   if (!pickaxe) {
-    return <div style={{ marginLeft: 8 }}>Where are my warriors?</div>;
+    return <div style={{ marginLeft: 8 }}>Hint: Power of your warrior multiplies $CRYSTAL issuance!`</div>;
   }
 
   return (
