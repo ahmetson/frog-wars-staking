@@ -25,8 +25,6 @@ export default function ShopItem({ item, pickaxeContract }: Props) {
       <ThirdwebNftMedia
         metadata={item.metadata}
         className={`${styles.nftMedia} ${styles.spacerTop}`}
-        height="64"
-        width="128px"
       />
       <h3>{item.metadata.name}</h3>
       <p>
