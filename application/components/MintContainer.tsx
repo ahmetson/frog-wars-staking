@@ -6,7 +6,7 @@ import styles from "../styles/Home.module.css";
 export default function MintContainer() {
   return (
     <div className={styles.collectionContainer}>
-      <h1>Frog Wars Staking</h1>
+      <h1>Frog Wars - Hunger for Power!</h1>
       <p>Claim FREE Comic Book NFT to start playing!</p>
 
       <div className={`${styles.nftBox} ${styles.spacerBottom}`}>
