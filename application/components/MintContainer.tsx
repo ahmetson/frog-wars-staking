@@ -17,7 +17,7 @@ export default function MintContainer() {
         <Web3Button
           theme="dark"
           contractAddress={CHARACTER_EDITION_ADDRESS}
-          action={(contract) => contract.erc1155.claim(0, 1)}
+          action={(contract) => contract.erc1155.claim(1, 1)}
         >
           Buy
         </Web3Button>
