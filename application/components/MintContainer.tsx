@@ -7,7 +7,7 @@ export default function MintContainer() {
   return (
     <div className={styles.collectionContainer}>
       <h1>Frog Wars Staking</h1>
-      <p>Buy Comic Book NFT to start playing!</p>
+      <p>Claim FREE Comic Book NFT to start playing!</p>
 
       <div className={`${styles.nftBox} ${styles.spacerBottom}`}>
         <Image src="/book.jpg" width={"120"} height={"200"} alt="mine" />
@@ -19,7 +19,7 @@ export default function MintContainer() {
           contractAddress={CHARACTER_EDITION_ADDRESS}
           action={(contract) => contract.erc1155.claim(1, 1)}
         >
-          Buy
+          Claim
         </Web3Button>
       </div>
     </div>
