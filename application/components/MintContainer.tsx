@@ -20,7 +20,7 @@ export default function MintContainer() {
           action={(contract) => contract.erc1155.claim(1, 1)}
         >
           FREE CLAIM
-          (Marketplace fee 0.0001ETH)
+          (Marketplace minter fee 0.0001ETH)
         </Web3Button>
       </div>
     </div>
