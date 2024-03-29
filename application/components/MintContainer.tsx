@@ -19,7 +19,8 @@ export default function MintContainer() {
           contractAddress={CHARACTER_EDITION_ADDRESS}
           action={(contract) => contract.erc1155.claim(1, 1)}
         >
-          Claim
+          FREE CLAIM
+          (Marketplace fee 0.0001ETH)
         </Web3Button>
       </div>
     </div>
