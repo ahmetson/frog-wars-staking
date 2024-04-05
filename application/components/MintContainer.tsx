@@ -7,7 +7,7 @@ export default function MintContainer() {
   return (
     <div className={styles.collectionContainer}>
       <h1>Frog Wars - Hunger for Power!</h1>
-      <p>Claim FREE Comic Book NFT to start playing!</p>
+      <p>MINT OG COMIC BOOK EDITION 1 NFT to start playing!</p>
 
       <div className={`${styles.nftBox} ${styles.spacerBottom}`}>
         <Image src="/book.jpg" width={"120"} height={"200"} alt="mine" />
@@ -17,10 +17,9 @@ export default function MintContainer() {
         <Web3Button
           theme="dark"
           contractAddress={CHARACTER_EDITION_ADDRESS}
-          action={(contract) => contract.erc1155.claim(1, 1)}
+          action={(contract) => contract.erc1155.claim(0, 1)}
         >
-          FREE CLAIM
-          (Marketplace minter fee 0.0001ETH)
+          MINT 
         </Web3Button>
       </div>
     </div>
