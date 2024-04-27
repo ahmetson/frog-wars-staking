@@ -31,7 +31,7 @@ export default function ShopItem({ item, pickaxeContract }: Props) {
         Price:{" "}
         <b>
           {claimCondition && ethers.utils.formatUnits(claimCondition?.price)}{" "}
-          CRYSTAL
+          ETH
         </b>
       </p>
 
