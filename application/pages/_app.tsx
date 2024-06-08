@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const activeChain = Linea;
 
   return (
-    <ThirdwebProvider activeChain={activeChain} clientId={process.env.THIRDWEB_CLIENT_ID!}>
+    <ThirdwebProvider activeChain={activeChain} clientId={process.env.NEXT_PUBLIC_THIRDWEB_CLIENT_ID!}>
       <Component {...pageProps} />
     </ThirdwebProvider>
   );
